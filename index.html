@@ -28,5 +28,18 @@
     <audio src="等不到的等待.mp3" controls autoplay loop>
         您的浏览器不支持 HTML5 音频标签。
     </audio>
+     <script>
+        const audio = document.getElementById('myAudio');
+        // 尝试自动播放
+        try {
+            audio.play();
+        } catch (error) {
+            // 如果自动播放失败，则监听首次点击事件后再播放
+            document.addEventListener('click', function() {
+                audio.play();
+            });
+        }
+    </script>
+
 </body>
 </html>
