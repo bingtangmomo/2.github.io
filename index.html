@@ -18,16 +18,24 @@
             max-width: 100%;
             height: auto;
         }
-        audio {
-            width: 100%;
+        button {
+            margin-top: 20px;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
 <body>
     <img src="7.jpg" alt="可爱的相柳">
-    <p>点击下方按钮播放音乐：</p>
-    <button onclick="document.getElementById('myAudio').play()">Play Sound</button>
-    <audio id="myAudio" src="等不到的等待.mp3" type="audio/mpeg"></audio>
-    <p>您的浏览器不支持 HTML5 音频标签。</p>
+    <button onclick="playAudio()">Play Sound</button>
+    <script>
+        var sound = new Howl({
+            src: ['等不到的等待.mp3'],
+            html5: true
+        });
+
+        function playAudio() {
+            sound.play();
+        }
+    </script>
 </body>
 </html>
