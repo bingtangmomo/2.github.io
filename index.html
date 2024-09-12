@@ -25,22 +25,28 @@
 </head>
 <body>
     <img src="7.jpg" alt="可爱的相柳">
-    <audio src="等不到的等待.mp3" controls autoplay loop>
-        您的浏览器不支持 HTML5 音频标签。
-    function autoPlayAudio() {
-        wx.config({
-            // 配置信息, 即使不正确也能使用 wx.ready
-            debug: false,
-            appId: '',
-            timestamp: 1,
-            nonceStr: '',
-            signature: '',
-            jsApiList: []
-        });
-        wx.ready(function() {
-            document.querySelector('audio').play();
-        });
-    }
+    <button onclick="document.getElementById('myAudio').play()">Play Sound</button>
+    <audio id="myAudio" src="等不到的等待.mp3" type="audio/mpeg"></audio>
+    <p>您的浏览器不支持 HTML5 音频标签。</p>
+
+    <script>
+        // 自动播放音频的功能通常在用户交互后才能生效
+        // wx.config 和 wx.ready 是用于微信 JS SDK 的，不适用于普通的网页应用
+        // 所以可以将这部分代码删除或注释掉
+        
+        // function autoPlayAudio() {
+        //     wx.config({
+        //         debug: false,
+        //         appId: '',
+        //         timestamp: 1,
+        //         nonceStr: '',
+        //         signature: '',
+        //         jsApiList: []
+        //     });
+        //     wx.ready(function() {
+        //         document.querySelector('audio').play();
+        //     });
+        // }
     </script>
 </body>
 </html>
