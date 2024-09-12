@@ -21,19 +21,48 @@
         audio {
             display: none; /* 隐藏音频播放器 */
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #message {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
     <img src="7.jpg" alt="可爱的相柳">
+    <button id="playButton">播放音乐</button>
     <audio id="myAudio" src="等不到的等待.mp3" type="audio/mpeg"></audio>
+    <div id="message">点击“播放音乐”按钮来听音乐。</div>
     <script>
-        // 尝试在用户与页面有交互时自动播放音频
-        document.body.addEventListener('click', function() {
+        // 播放音频的函数
+        function playAudio() {
             var audio = document.getElementById('myAudio');
             audio.play().catch(function(error) {
                 console.error('播放音频时出错：', error);
             });
+        }
+
+        // 设置按钮点击事件处理程序
+        document.getElementById('playButton').addEventListener('click', function() {
+            playAudio();
         });
+
+        // 页面加载后提示用户点击按钮播放音频
+        window.onload = function() {
+            var message = document.getElementById('message');
+            setTimeout(function() {
+                message.style.display = 'none'; // 5秒后隐藏提示信息
+            }, 5000);
+        };
     </script>
 </body>
 </html>
