@@ -18,23 +18,26 @@
             max-width: 100%;
             height: auto;
         }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
         button {
             margin-top: 20px;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
 <body>
     <img src="7.jpg" alt="可爱的相柳">
-    <button onclick="playAudio()">Play Sound</button>
+    <p>点击下方按钮播放视频：</p>
+    <button onclick="playVideo()">Play Video</button>
+    <video id="你爱不爱我.mp4" controls></video>
     <script>
-        var sound = new Howl({
-            src: ['等不到的等待.mp3'],
-            html5: true
-        });
-
-        function playAudio() {
-            sound.play();
+        function playVideo() {
+            var video = document.getElementById('myVideo');
+            video.play().catch(function(error) {
+                console.error('播放视频时出错：', error);
+            });
         }
     </script>
 </body>
