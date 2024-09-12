@@ -23,43 +23,29 @@
         }
         button {
             margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <img src="7.jpg" alt="可爱的相柳">
-    <audio id="myAudio" src="等不到的等待.mp3" type="audio/mpeg"></audio>
     <button id="playButton">播放音乐</button>
+    <audio id="myAudio" src="等不到的等待.mp3" type="audio/mpeg"></audio>
     <script>
-        // 自动播放音频的函数
-        function autoPlayAudio() {
+        // 播放音频的函数
+        function playAudio() {
             var audio = document.getElementById('myAudio');
             audio.play().catch(function(error) {
-                console.log('自动播放音频失败：', error);
+                console.error('播放音频时出错：', error);
             });
         }
 
-        // 尝试自动播放音频
-        window.onload = function() {
-            autoPlayAudio();
-            
-            // 提供一个按钮以便用户点击以播放音频
-            var playButton = document.getElementById('playButton');
-            playButton.addEventListener('click', function() {
-                autoPlayAudio();
-            });
-
-            // 提示用户点击按钮播放音频
-            var message = document.createElement('div');
-            message.textContent = '如果音频没有自动播放，请点击“播放音乐”按钮。';
-            message.style.position = 'fixed';
-            message.style.top = '10px';
-            message.style.left = '10px';
-            message.style.backgroundColor = '#fff';
-            message.style.padding = '10px';
-            message.style.border = '1px solid #ccc';
-            document.body.appendChild(message);
-        };
+        // 设置按钮点击事件处理程序
+        document.getElementById('playButton').addEventListener('click', function() {
+            playAudio();
+        });
     </script>
 </body>
 </html>
